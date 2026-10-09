@@ -1,21 +1,32 @@
-# NÚCLEO ZERO
+# NÚCLEO ZERO (Godot 4)
 
-Jogo incremental **offline** para Android, desenvolvido em **Godot 4 / GDScript**. Projeto original com reator interativo, cápsulas, 30 relíquias, seis raridades, melhorias, produção automática, ascensão e gravação local.
+Jogo **incremental offline para Android**, desenvolvido em Godot **4.5.2**, com identidade original. O código está organizado em GDScript, sem WebView, contas, anúncios ou ligações a servidores.
+
+## Jogabilidade
+
+- Reator táctil: toca para gerar energia e receber cápsulas.
+- 30 relíquias colecionáveis distribuídas por seis raridades.
+- Economia: moedas, venda de itens e cinco melhorias.
+- Produção automática, golpes críticos e sorte.
+- Quatro ecrãs: Reator, Oficina, Arquivo e Ascensão.
+- Talentos permanentes e sistema de prestígio.
+- Gravação JSON local e recuperação até oito horas offline.
+- Feedback háptico no Android e interface vertical.
+
+## Abrir o projeto
+
+Instala o [Godot 4](https://godotengine.org/download/), abre \`project.godot\` e executa com F5. O projeto usa GDScript, sem .NET.
+
+Para testes headless: \`godot --headless --editor --path . --quit\`, depois \`godot --headless --path . --script res://tests/smoke_test.gd\`.
 
 ## APK Android
 
-Acede a [GitHub Actions](https://github.com/PulseBreakPT/NucleoZero/actions) e abre **Compilar APK Android (debug)**. Depois de uma execução com sucesso, descarrega o artefacto **NucleoZero-Android-APK** e extrai o ficheiro `NucleoZero.apk`.
+O envio de alterações para \`main\` inicia o workflow [Compilar APK Android (debug)](https://github.com/PulseBreakPT/NucleoZero/actions). A Action instala o Godot 4.5.2, Android SDK e templates, corre os testes, exporta a aplicação em ARM64 e disponibiliza o artefacto **NucleoZero-Android-APK** com \`NucleoZero.apk\`.
 
-O APK de debug é instalável em dispositivos Android ARM64 e não requer internet para jogar. Ainda não é uma versão de produção da Google Play.
+O APK de debug é para instalação e testes, não para publicação comercial na Google Play. O jogo não solicita permissão de internet.
 
-## Abrir no Godot
+## Estrutura
 
-Abre `project.godot` no Godot **4.5.2 Standard** e executa com F5. A pasta `scripts/` contém a lógica e interface; `assets/` contém os recursos gráficos SVG.
+\`project.godot\`, \`scenes/Main.tscn\`, \`scripts/GameData.gd\`, \`scripts/Main.gd\`, \`tests/smoke_test.gd\`, \`assets/atmosphere.svg\`, \`assets/icon.svg\` e \`export_presets.cfg\`.
 
-## Automatização
-
-O workflow `.github/workflows/android-debug.yml` instala Godot e Android SDK, testa a lógica e a cena principal, exporta e disponibiliza o APK.
-
-**Nota sobre o primeiro envio:** o projeto será inicialmente sincronizado num pacote de arranque e expandido para os ficheiros normais pelo primeiro workflow, para permitir a publicação através da ligação GitHub. O código será legível e editável diretamente no repositório após essa sincronização.
-
-Este projeto é um protótipo em desenvolvimento. A compilação e o teste físico num telemóvel serão validados separadamente.
+**Estado:** protótipo aberto à evolução. Design, economia e equilíbrio de recompensas sujeitos a testes reais.
